@@ -492,6 +492,51 @@ button {
 
 .ip-grid {
   grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.ip-grid .work-card {
+  --sticker: #ffffff;
+  aspect-ratio: 1 / 1;
+  border: 4px solid #fff;
+  box-shadow: 0 14px 30px rgba(17, 17, 19, .14), 0 0 0 3px var(--sticker);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.ip-grid .work-card:nth-child(1) {
+  --sticker: #ffd166;
+  transform: rotate(-1.2deg) translateY(4px);
+}
+
+.ip-grid .work-card:nth-child(2) {
+  --sticker: #7ae0c3;
+  transform: rotate(1.4deg) translateY(-6px);
+}
+
+.ip-grid .work-card:nth-child(3) {
+  --sticker: #f4a261;
+  transform: rotate(-1.5deg) translateY(8px);
+}
+
+.ip-grid .work-card:nth-child(4) {
+  --sticker: #b9a5f5;
+  transform: rotate(1.2deg) translateY(-4px);
+}
+
+.ip-grid .work-card:nth-child(5) {
+  --sticker: #ff8fa3;
+  transform: rotate(-1deg) translateY(6px);
+}
+
+.ip-grid .work-card:nth-child(6) {
+  --sticker: #9bd1ff;
+  transform: rotate(1.6deg) translateY(-2px);
+}
+
+.ip-grid .work-card:hover {
+  z-index: 2;
+  transform: rotate(0deg) translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(17, 17, 19, .2), 0 0 0 3px var(--sticker);
 }
 
 .work-card {
@@ -1017,6 +1062,11 @@ button {
   .design-grid,
   .ip-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ip-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .video-grid {

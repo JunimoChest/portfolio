@@ -27,7 +27,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealEls.forEach((el) => revealObserver.observe(el));
 
-const imageGalleries = document.querySelectorAll('.gallery-grid, .gallery-track');
+const imageGalleries = document.querySelectorAll('.gallery-grid:not(.ip-grid), .gallery-track');
 
 function initCarousel(carousel) {
   const viewport = carousel.querySelector('.carousel-viewport');
