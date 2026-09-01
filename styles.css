@@ -491,8 +491,11 @@ button {
 }
 
 .ip-grid {
+  max-width: 860px;
+  margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 24px;
+  padding: 8px 0 18px;
 }
 
 .ip-grid .work-card {
@@ -1066,7 +1069,7 @@ button {
 
   .ip-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 14px;
   }
 
   .video-grid {
