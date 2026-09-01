@@ -528,6 +528,10 @@ button {
   font-size: 12px;
 }
 
+.work-card figcaption {
+  display: none;
+}
+
 .work-card figcaption span:last-child {
   font-size: 11px;
   opacity: .8;
@@ -554,6 +558,120 @@ button {
 
 .gallery-track .work-card {
   scroll-snap-align: start;
+}
+
+.carousel {
+  --slide-min: 280px;
+  position: relative;
+  outline: none;
+}
+
+.carousel--kv {
+  --slide-min: 300px;
+}
+
+.carousel--ads {
+  --slide-min: 250px;
+}
+
+.carousel--design {
+  --slide-min: 340px;
+}
+
+.carousel--xhs {
+  --slide-min: 200px;
+}
+
+.carousel--ip {
+  --slide-min: 240px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 14px;
+  transition: transform .55s cubic-bezier(.2, .7, .2, 1);
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.carousel-btn {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, opacity .2s ease;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  border-color: var(--acid);
+  background: rgba(255, 255, 255, .08);
+}
+
+.work-design .carousel-btn:hover:not(:disabled),
+.work-ai .carousel-btn:hover:not(:disabled) {
+  background: #fff;
+}
+
+.carousel-btn:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.carousel-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-progress {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(120, 120, 126, .25);
+}
+
+.carousel-progress span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  border-radius: 4px;
+  background: var(--acid);
+  transition: width .45s ease;
+}
+
+.work-design .carousel-progress span {
+  background: var(--coral);
+}
+
+.work-ai .carousel-progress span {
+  background: #008ca5;
 }
 
 .video-grid {
@@ -601,6 +719,29 @@ button {
   border-radius: 50%;
   background: var(--acid);
   color: #101014;
+}
+
+.video-thumb {
+  position: relative;
+  flex: 0 0 180px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #111;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-thumb .video-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
 }
 
 .video-icon svg,
@@ -853,6 +994,10 @@ button {
 
   .video-grid {
     grid-template-columns: 1fr;
+  }
+
+  .video-thumb {
+    flex-basis: 130px;
   }
 
   .gallery-track {

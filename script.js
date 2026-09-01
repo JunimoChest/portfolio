@@ -27,6 +27,101 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealEls.forEach((el) => revealObserver.observe(el));
 
+const imageGalleries = document.querySelectorAll('.gallery-grid, .gallery-track');
+
+function initCarousel(carousel) {
+  const viewport = carousel.querySelector('.carousel-viewport');
+  const track = carousel.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const prevBtn = carousel.querySelector('[data-carousel-prev]');
+  const nextBtn = carousel.querySelector('[data-carousel-next]');
+  const progress = carousel.querySelector('.carousel-progress span');
+  const gap = 14;
+  let index = 0;
+  let perView = 1;
+
+  function update() {
+    const minSlide = parseFloat(getComputedStyle(carousel).getPropertyValue('--slide-min')) || 260;
+    perView = Math.max(1, Math.min(slides.length, Math.floor((carousel.clientWidth + gap) / (minSlide + gap))));
+    const slideWidth = (carousel.clientWidth - gap * (perView - 1)) / perView;
+    slides.forEach((slide) => {
+      slide.style.flex = `0 0 ${slideWidth}px`;
+    });
+    const maxIndex = Math.max(0, slides.length - perView);
+    index = Math.min(index, maxIndex);
+    track.style.transform = `translateX(${-index * (slideWidth + gap)}px)`;
+    progress.style.width = `${((index + 1) / (maxIndex + 1)) * 100}%`;
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index >= maxIndex;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    index = Math.max(0, index - 1);
+    update();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = Math.min(slides.length - perView, index + 1);
+    update();
+  });
+
+  carousel.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') prevBtn.click();
+    if (event.key === 'ArrowRight') nextBtn.click();
+  });
+
+  const resizeObserver = new ResizeObserver(() => update());
+  resizeObserver.observe(carousel);
+  update();
+}
+
+imageGalleries.forEach((grid) => {
+  const type = grid.classList.contains('xhs-track')
+    ? 'xhs'
+    : grid.classList.contains('ip-grid')
+      ? 'ip'
+      : grid.classList.contains('ad-grid')
+        ? 'ads'
+        : grid.classList.contains('design-grid')
+          ? 'design'
+          : 'kv';
+
+  const carousel = document.createElement('div');
+  carousel.className = `carousel carousel--${type}`;
+  carousel.setAttribute('tabindex', '0');
+  carousel.setAttribute('aria-label', '作品轮播');
+
+  const viewport = document.createElement('div');
+  viewport.className = 'carousel-viewport';
+  const track = document.createElement('div');
+  track.className = 'carousel-track';
+
+  Array.from(grid.children).forEach((slide) => {
+    slide.classList.add('carousel-slide');
+    slide.querySelector('figcaption')?.remove();
+    track.appendChild(slide);
+  });
+
+  viewport.appendChild(track);
+  carousel.appendChild(viewport);
+
+  const controls = document.createElement('div');
+  controls.className = 'carousel-controls';
+  controls.innerHTML = `
+    <button class="carousel-btn" type="button" data-carousel-prev aria-label="上一张">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="carousel-progress"><span></span></div>
+    <button class="carousel-btn" type="button" data-carousel-next aria-label="下一张">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  `;
+  carousel.appendChild(controls);
+
+  grid.replaceWith(carousel);
+  initCarousel(carousel);
+});
+
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
