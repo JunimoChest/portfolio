@@ -1,5 +1,42 @@
 document.documentElement.classList.add('js');
 
+const PASSWORD_HASH = 'ee061983';
+const accessForm = document.getElementById('accessForm');
+const passwordInput = document.getElementById('passwordInput');
+const accessError = document.getElementById('accessError');
+
+function hashPassword(value) {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < value.length; i += 1) {
+    hash ^= value.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return (hash >>> 0).toString(16).padStart(8, '0');
+}
+
+function unlockPortfolio() {
+  document.body.classList.remove('locked');
+  sessionStorage.setItem('portfolio-unlocked', '1');
+}
+
+if (sessionStorage.getItem('portfolio-unlocked') === '1') {
+  unlockPortfolio();
+}
+
+accessForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const value = passwordInput.value;
+  if (hashPassword(value) === PASSWORD_HASH) {
+    accessError.textContent = '';
+    passwordInput.value = '';
+    unlockPortfolio();
+  } else {
+    accessError.textContent = '密码不正确';
+    passwordInput.value = '';
+    passwordInput.focus();
+  }
+});
+
 const navToggle = document.getElementById('navToggle');
 const siteNav = document.getElementById('siteNav');
 
