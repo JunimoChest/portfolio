@@ -816,9 +816,9 @@ body:not(.locked) .access-gate {
   grid-template-columns: minmax(0, 1fr) minmax(300px, .9fr);
   gap: 44px;
   align-items: center;
-  padding: 30px;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  padding: 0;
+  background: transparent;
+  border: 0;
   border-radius: 8px;
 }
 
@@ -850,9 +850,9 @@ body:not(.locked) .access-gate {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 480px;
-  padding: 18px;
-  background: #1a1e26;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
   border-radius: 8px;
 }
 
@@ -1347,12 +1347,12 @@ body:not(.locked) .access-gate {
   .role-slide {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 20px;
+    padding: 0;
   }
 
   .role-media {
-    min-height: 320px;
-    padding: 10px;
+    min-height: 0;
+    padding: 0;
   }
 
   .role-media img {
