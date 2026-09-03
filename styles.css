@@ -190,8 +190,9 @@ body:not(.locked) .access-gate {
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  background: rgba(12, 13, 16, .58);
-  border-bottom: 1px solid rgba(255, 255, 255, .14);
+  background: linear-gradient(180deg, rgba(19, 20, 26, .92), rgba(11, 12, 15, .78));
+  border-bottom: 1px solid rgba(255, 255, 255, .18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
   backdrop-filter: blur(14px);
   color: #fff;
 }
@@ -234,8 +235,9 @@ body:not(.locked) .access-gate {
 
 .nav-cta {
   padding: 8px 14px;
-  border: 1px solid rgba(255, 255, 255, .28);
+  border: 1px solid rgba(216, 255, 62, .42);
   border-radius: 8px;
+  background: rgba(216, 255, 62, .08);
 }
 
 .nav-toggle {
@@ -390,7 +392,11 @@ body:not(.locked) .access-gate {
 
 .intro {
   padding: 90px 0;
-  background: var(--paper);
+  background:
+    linear-gradient(115deg, rgba(216, 255, 62, .06), transparent 42%),
+    linear-gradient(300deg, rgba(58, 217, 232, .06), transparent 52%),
+    #0e1013;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .section-inner {
@@ -401,7 +407,7 @@ body:not(.locked) .access-gate {
 .intro-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 18px;
 }
 
 .intro-card {
@@ -412,9 +418,10 @@ body:not(.locked) .access-gate {
   flex-direction: column;
   overflow: hidden;
   padding: 34px 30px 28px;
-  background: var(--panel);
+  background: linear-gradient(145deg, #22252c, #181a20);
   border: 1px solid var(--line);
   border-radius: 8px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
 
@@ -438,14 +445,14 @@ body:not(.locked) .access-gate {
 
 .intro-card:hover {
   transform: translateY(-4px);
-  border-color: var(--acid);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, .24);
+  border-color: var(--card-accent);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .36);
 }
 
 .intro-num {
   font-size: 13px;
   font-weight: 800;
-  color: rgba(255, 255, 255, .45);
+  color: var(--card-accent);
 }
 
 .intro-card h2 {
@@ -485,17 +492,27 @@ body:not(.locked) .access-gate {
 }
 
 .work-game {
-  background: var(--dark);
+  background:
+    linear-gradient(115deg, rgba(216, 255, 62, .07), transparent 38%),
+    linear-gradient(305deg, rgba(58, 217, 232, .05), transparent 52%),
+    #0c0d10;
   color: #f4f3ef;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .work-design {
-  background: var(--paper);
+  background:
+    linear-gradient(120deg, rgba(255, 92, 70, .07), transparent 42%),
+    linear-gradient(235deg, rgba(58, 217, 232, .06), transparent 55%),
+    #0b0c0f;
   color: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .work-ai {
-  background: var(--paper);
+  background:
+    linear-gradient(120deg, rgba(58, 217, 232, .08), transparent 45%),
+    #0b0c0f;
   color: var(--ink);
 }
 
@@ -1079,7 +1096,10 @@ body:not(.locked) .access-gate {
 
 .play-section {
   padding: 110px 0;
-  background: #0e0f12;
+  background:
+    linear-gradient(115deg, rgba(216, 255, 62, .09), transparent 46%),
+    linear-gradient(300deg, rgba(58, 217, 232, .08), transparent 58%),
+    #101216;
   color: #f2f3f5;
 }
 
