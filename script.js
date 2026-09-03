@@ -64,7 +64,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealEls.forEach((el) => revealObserver.observe(el));
 
-const imageGalleries = document.querySelectorAll('.gallery-grid:not(.ip-grid), .gallery-track');
+const imageGalleries = document.querySelectorAll('.gallery-grid:not(.ip-grid):not(.store-grid), .gallery-track');
 
 function initCarousel(carousel) {
   const viewport = carousel.querySelector('.carousel-viewport');
@@ -160,6 +160,11 @@ imageGalleries.forEach((grid) => {
   grid.replaceWith(carousel);
   initCarousel(carousel);
 });
+
+const roleCarousel = document.querySelector('.carousel--role');
+if (roleCarousel) {
+  initCarousel(roleCarousel);
+}
 
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
