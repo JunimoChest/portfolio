@@ -365,6 +365,12 @@ body:not(.locked) .access-gate {
   color: #fff;
 }
 
+.btn-outline {
+  border-color: rgba(17, 17, 19, .6);
+  background: transparent;
+  color: #101014;
+}
+
 .hero-footer {
   position: absolute;
   left: 0;
@@ -669,6 +675,14 @@ body:not(.locked) .access-gate {
   box-shadow: 0 20px 40px rgba(17, 17, 19, .2), 0 0 0 3px var(--sticker);
 }
 
+.character-grid {
+  max-width: 920px;
+}
+
+.character-grid .work-card {
+  aspect-ratio: 3 / 4;
+}
+
 .work-card {
   position: relative;
   margin: 0;
@@ -758,6 +772,10 @@ body:not(.locked) .access-gate {
 }
 
 .carousel--ip {
+  --slide-min: 240px;
+}
+
+.carousel--store {
   --slide-min: 240px;
 }
 
@@ -997,7 +1015,10 @@ body:not(.locked) .access-gate {
   max-width: 560px;
 }
 
-.play-copy-wrap .btn {
+.play-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 28px;
 }
 

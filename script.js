@@ -117,6 +117,8 @@ imageGalleries.forEach((grid) => {
     ? 'xhs'
     : grid.classList.contains('ip-grid')
       ? 'ip'
+      : grid.classList.contains('store-grid')
+        ? 'store'
       : grid.classList.contains('ad-grid')
         ? 'ads'
         : grid.classList.contains('design-grid')
