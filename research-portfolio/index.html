@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f3f0ea">
+  <title>Research & Strategy Portfolio</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260917i">
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <script src="script.js?v=20260917i" defer></script>
+</head>
+<body class="is-locked">
+  <div class="password-gate" id="passwordGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <div class="gate-panel">
+      <p class="eyebrow">Research Portfolio</p>
+      <h1 id="gateTitle">分析作品集</h1>
+      <p class="gate-copy">请输入访问密码</p>
+      <form class="gate-form" id="passwordForm" novalidate>
+        <label class="sr-only" for="passwordInput">访问密码</label>
+        <div class="gate-input-row">
+          <input id="passwordInput" name="password" type="password" autocomplete="current-password" inputmode="text" placeholder="访问密码" autofocus>
+          <button class="primary-button" type="submit" aria-label="进入作品集">
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <p class="gate-error" id="gateError" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="site-shell" id="siteShell" aria-hidden="true">
+    <aside class="sidebar">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="brand-mark">RS</span>
+        <span class="brand-text">Research<br>Portfolio</span>
+      </a>
+      <nav class="section-nav" id="sectionNav" aria-label="作品分类"></nav>
+      <div class="sidebar-foot">
+        <p>2026 / Selected Work</p>
+        <button class="ghost-button" id="lockButton" type="button">
+          <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+          <span>锁定</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="top">
+      <header class="page-header">
+        <p class="eyebrow">Selected Work / 2026</p>
+        <h1>研究、分析与策略作品集</h1>
+        <p class="page-intro page-intro--single-line">用户研究、竞品分析、营销洞察与行业分析的项目案例展示。所有内容均围绕真实研究问题，内容已脱敏。</p>
+      </header>
+      <div class="sections" id="sections"></div>
+    </main>
+  </div>
+
+  <div class="viewer" id="viewer" aria-hidden="true">
+    <div class="viewer-backdrop" data-close-viewer></div>
+    <section class="viewer-panel" role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
+      <header class="viewer-header">
+        <div>
+          <p class="eyebrow" id="viewerType"></p>
+          <h2 id="viewerTitle"></h2>
+        </div>
+        <div class="viewer-actions">
+          <button class="icon-button" id="viewerClose" type="button" aria-label="关闭预览">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+      </header>
+      <div class="viewer-body" id="viewerBody"></div>
+    </section>
+  </div>
+
+  <noscript>本站需要启用 JavaScript 才能浏览。</noscript>
+</body>
+</html>
