@@ -34,7 +34,7 @@ accessForm.addEventListener('submit', (event) => {
     accessError.textContent = '';
     passwordInput.value = '';
     passwordInput.select();
-    window.alert('你没有被邀请\nYou are not invited');
+    window.alert('密码错误！\n\n你没有被邀请\nYou are not invited');
   }
 });
 
