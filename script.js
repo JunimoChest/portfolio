@@ -1,6 +1,6 @@
 document.documentElement.classList.add('js');
 
-const PASSWORD_HASH = 'ee061983';
+const PASSWORD_HASH = '5a99d329';
 const accessForm = document.getElementById('accessForm');
 const passwordInput = document.getElementById('passwordInput');
 const accessError = document.getElementById('accessError');
@@ -16,10 +16,10 @@ function hashPassword(value) {
 
 function unlockPortfolio() {
   document.body.classList.remove('locked');
-  sessionStorage.setItem('portfolio-unlocked', '1');
+  sessionStorage.setItem('portfolio-unlocked-v2', '1');
 }
 
-if (sessionStorage.getItem('portfolio-unlocked') === '1') {
+if (sessionStorage.getItem('portfolio-unlocked-v2') === '1') {
   unlockPortfolio();
 }
 
@@ -31,9 +31,10 @@ accessForm.addEventListener('submit', (event) => {
     passwordInput.value = '';
     unlockPortfolio();
   } else {
-    accessError.textContent = '密码不正确';
+    accessError.textContent = '';
     passwordInput.value = '';
-    passwordInput.focus();
+    passwordInput.select();
+    window.alert('你没有被邀请\nYou are not invited');
   }
 });
 
